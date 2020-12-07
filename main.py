@@ -6,6 +6,8 @@ Generate training and test images.
 import os
 
 # prevent opencv use all cpus
+import string
+
 os.environ['OMP_NUM_THREADS'] = '1'
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 os.environ['MKL_NUM_THREADS'] = '1'
@@ -25,7 +27,7 @@ import libs.font_utils as font_utils
 from textrenderer.corpus.corpus_utils import corpus_factory
 from textrenderer.renderer import Renderer
 from tenacity import retry
-
+import random
 lock = mp.Lock()
 counter = mp.Value('i', 0)
 STOP_TOKEN = 'kill'
@@ -82,9 +84,11 @@ def generate_img(img_index, q=None):
     np.random.seed()
 
     im, word = gen_img_retry(renderer, img_index)
+    # 4位随机数
+    ran_str = ''.join(random.sample(string.ascii_letters + string.digits,4))
 
     base_name = '{:08d}'.format(img_index)
-
+    base_name = ran_str+ base_name
     if not flags.viz:
         fname = os.path.join(flags.save_dir, base_name + '.jpg')
         cv2.imwrite(fname, im)
@@ -145,7 +149,7 @@ if __name__ == "__main__":
     if flags.viz == 1:
         flags.num_processes = 1
 
-    tmp_label_path = os.path.join(flags.save_dir+'/../', 'image_label.txt')
+    tmp_label_path = os.path.join(flags.save_dir+'/../', 'train.txt')
     label_path = os.path.join(flags.save_dir, 'labels.txt')
 
     manager = mp.Manager()
