@@ -25,7 +25,7 @@ if __name__ == '__main__':
     labelFile.close()
 
     # 读取lian-med-dict
-    labelFile = open("./lian-med-dict.txt")
+    labelFile = open("lian-med-dict.txt")
     line = labelFile.readline()
     while line:
         line = line.replace('\n', '')

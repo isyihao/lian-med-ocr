@@ -14,12 +14,9 @@ os.environ['NUMEXPR_NUM_THREADS'] = '1'
 
 import traceback
 import numpy as np
-
 import multiprocessing as mp
 from itertools import repeat
-
 import cv2
-
 from libs.config import load_config
 from libs.timer import Timer
 from parse_args import parse_args
