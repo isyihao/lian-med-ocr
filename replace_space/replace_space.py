@@ -8,7 +8,7 @@ import os
 if __name__ == '__main__':
     # 读取label文件
     labelList = []
-    labelFile = open("./getrain.txt")
+    labelFile = open("./train.txt")
     line = labelFile.readline()
     i = 0
     while line:
