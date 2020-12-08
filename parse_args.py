@@ -6,7 +6,7 @@ import os
 def parse_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--num_img', type=int, default=66000, help="Number of images to generate")
+    parser.add_argument('--num_img', type=int, default=64000, help="Number of images to generate")
 
     parser.add_argument('--length', type=int, default=25,
                         help='Chars(chn) or words(eng) in a image. For eng corpus mode, default length is 3')
@@ -44,7 +44,7 @@ def parse_args():
 
     parser.add_argument('--output_dir', type=str, default='./output', help='Images save dir')
 
-    parser.add_argument('--tag', type=str, default='1128_1009/image', help='output images are saved under output_dir/{tag} dir')
+    parser.add_argument('--tag', type=str, default='medical_words_64000/image', help='output images are saved under output_dir/{tag} dir')
 
     parser.add_argument('--debug', action='store_true', default=False, help="output uncroped image")
 
