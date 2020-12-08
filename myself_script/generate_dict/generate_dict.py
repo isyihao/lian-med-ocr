@@ -8,7 +8,7 @@ import os
 if __name__ == '__main__':
     # 读取label文件
     dictMap = {}
-    labelFile = open("./train.txt")
+    labelFile = open("./train.txt",encoding='utf-8')
     line = labelFile.readline()
     i = 0
     while line:
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     labelFile.close()
 
     # 读取lian-med-dict
-    labelFile = open("lian-med-dict.txt")
+    labelFile = open("lian-med-dict.txt",encoding='utf-8')
     line = labelFile.readline()
     while line:
         line = line.replace('\n', '')
@@ -34,8 +34,8 @@ if __name__ == '__main__':
         line = labelFile.readline()
     labelFile.close()
 
-    fileName = 'dict.txt'
-    with open(fileName, 'w') as f:  # 如果filename不存在会自动创建， 'w'表示写数据，写之前会清空文件中的原有数据！
+    fileName = 'dict1207_1840.txt'
+    with open(fileName, 'w',encoding='utf-8') as f:  # 如果filename不存在会自动创建， 'w'表示写数据，写之前会清空文件中的原有数据！
         dictMapSorted = sorted(dictMap.keys())
         for item in dictMapSorted:
             content = item + '\n'
