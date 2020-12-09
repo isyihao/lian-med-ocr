@@ -11,8 +11,10 @@ rm -rf /data/PaddleOCR/train_log/1209_1000.log
 python3 tools/train.py \
 -c configs/rec/rec_chinese_common_train.yml \
 -o Global.character_dict_path=./ppocr/utils/dict.txt \
-Global.save_model_dir=./output/1111/ \
->/data/PaddleOCR/train_log/1111.log 2>&1 &
+Global.save_model_dir=./output/1209_1630/ \
+>/data/PaddleOCR/train_log/1209_1630.log 2>&1 &
+
+tail -n 20 /data/PaddleOCR/train_log/1209_1630.log
 
 
 # 杀死所有python3进程
