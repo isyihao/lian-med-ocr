@@ -42,10 +42,9 @@ if __name__ == '__main__':
             label_file.close()
             print(label_file_name + ' is ok!')
 
-
     fileName = 'dict.txt'
     with open(fileName, 'w') as f:
-        #dictMapSorted = sorted(dictMap.keys())
+        # dictMapSorted = sorted(dictMap.keys())
         for item in dictList:
             content = item + '\n'
             f.write(content)
