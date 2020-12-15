@@ -48,3 +48,15 @@ python3 tools/infer/predict_system.py \
 --use_angle_cls=False \
 --use_space_char=True
 
+# 用两个数据集预测指定的一组图像:(rec_model_dir1 rec_char_dict_path1 自己的数据模型和字符)
+
+python3 tools/infer/my_predict_system.py \
+--image_dir="./doc/med/" \
+--det_model_dir="./inference/ch_ppocr_mobile_v1.1_det_infer/"  \
+--rec_model_dir="./inference/ch_ppocr_mobile_v1.1_rec_infer/" \
+--rec_model_dir1="./inference/1209_1630/" \
+--cls_model_dir="./inference/ch_ppocr_mobile_v1.1_cls_infer/" \
+--rec_char_dict_path="ppocr/utils/ppocr_keys_v1.txt" \
+--rec_char_dict_path1="ppocr/utils/dict.txt" \
+--use_angle_cls=True \
+--use_space_char=True
