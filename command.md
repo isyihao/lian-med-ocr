@@ -9,13 +9,14 @@ $ ls -lR | grep "^d" | wc -l
 # 训练
 rm -rf /data/PaddleOCR/train_log/1209_1000.log
 python3 tools/train.py \
--c configs/rec/rec_chinese_common_train.yml \
+-c configs/rec/rec_chinese_lite_train_v1.1.yml \
 -o Global.character_dict_path=./ppocr/utils/dict.txt \
-Global.save_model_dir=./output/1209_1630/ \
->/data/PaddleOCR/train_log/1209_1630.log 2>&1 &
+Global.save_model_dir=./output/1215_1830/ \
+>/data/PaddleOCR/train_log/1215_1830.log 2>&1 &
 
-tail -n 20 /data/PaddleOCR/train_log/1209_1630.log
+tail -n 20 /data/PaddleOCR/train_log/1215_1830.log
 
+Global.pretrain_weights=./pretrain_models/ch_ppocr_mobile_v1.1_rec_pre/best_accuracy \
 
 # 杀死所有python3进程
 pkill -9f python3
